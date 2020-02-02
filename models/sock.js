@@ -1,11 +1,4 @@
 const mongoose = require('mongoose');
-mongoose.Promise = Promise;
-
-// Connecting API to DB
-mongoose
-  .connect('mongodb://localhost/socksdb', { useNewUrlParser: true })
-  .then(() => console.log('Connected to Socks DB...'))
-  .catch(err => console.log(`Error connecting to MongoDB : ${err}`));
 
 // Sock schema
 const sockSchema = new mongoose.Schema({
@@ -21,7 +14,8 @@ const sockSchema = new mongoose.Schema({
   },
   colors: {
     type: [String],
-    enum: ['blue', 'green', 'red', 'pink', 'yellow', 'rainbow']
+    enum: ['blue', 'green', 'red', 'pink', 'yellow', 'black', 'rainbow'],
+    required: true
   },
   stock: {
     type: Number,
