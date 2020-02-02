@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const socksHandlers = require('./handlers/socks');
+const socksHandlers = require('../handlers/socks');
 
 router
   .route('/')
-  .get(socksHandlers.getAllSocks)
-  .post(socksHandlers.addSocks);
+  .post(socksHandlers.addSocks)
+  .get(socksHandlers.getAllSocks);
 
 router
   .route('/:id')
